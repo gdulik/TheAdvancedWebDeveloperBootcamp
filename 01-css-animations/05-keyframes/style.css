@@ -1,0 +1,94 @@
+/* animation-name */
+/* animation-duration */
+/* animation-timing-function */
+/* animation-delay */
+/* animation-iteration-count */
+/* animation-fill-mode */
+/* animation-direction */
+/* animation-play-state */
+
+h1 {
+	animation-name: rainbowtext;
+	animation-duration: 3s;
+	animation-timing-function: linear;
+	animation-delay: 0s;
+	animation-iteration-count: infinite;
+	position: absolute;
+}
+
+@keyframes rainbowtext {
+	0% {
+		color: red;
+		font-size: 20px;
+	}
+	25% {
+		color: orange;
+	}
+	50% {
+		color: yellow;
+		font-size: 40px;
+	}
+	75% {
+		color: green;
+	}
+	100% {
+		color: blue;
+		font-size: 20px;
+	}
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:700);
+body {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	background: #2c3e50;
+}
+
+p {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	margin-top: 45vh;
+}
+
+a {
+	text-decoration: none;
+}
+
+.btn {
+	display: inline-block;
+	border-radius: 5px;
+	width: 5em;
+	padding: 1em;
+	color: white;
+	text-align: center;
+	font: 400 1.5em /1 'Raleway', sans-serif;
+	letter-spacing: 4px;
+	background: #1abc9c;
+	cursor: pointer;
+}
+
+.anim {
+	animation-name: jiggle;
+	animation-duration: 2s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: infinite;
+}
+
+@keyframes jiggle {
+	48%,
+	62% {
+		transform: scale(1.0, 1.0);
+	}
+	50% {
+		transform: scale(1.1, 0.9);
+	}
+	56% {
+		transform: scale(0.9, 1.1) translate(0, -5px);
+	}
+	59% {
+		transform: scale(1.0, 1.0) translate(0, -3px);
+	}
+}
