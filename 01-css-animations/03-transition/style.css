@@ -2,6 +2,7 @@
 /* transition-property */
 /* transition-timing-function */
 /* transition-delay */
+/* transition: property duration timing-function */
 
 p {
 	width: 150px;
