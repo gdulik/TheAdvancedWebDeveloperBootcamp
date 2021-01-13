@@ -19,7 +19,7 @@
 	flex-direction: row-reverse; /* default: row */
 	flex-wrap: wrap; /* default: nowrap */
 	justify-content: space-evenly; /* default: flex-start */
-	align-items: center;
+	align-items: center; /* default: stretch */
 }
 
 .box-1 {
