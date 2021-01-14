@@ -241,7 +241,7 @@ header nav li {
 }
 
 .packages .grid p {
-	max-width: 1000px;
+	margin: auto;
 }
 
 @media all and (max-width: 800px) {
@@ -277,6 +277,7 @@ header nav li {
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 60%;
+	max-width: 750px;
 }
 
 .contact form .btn {
