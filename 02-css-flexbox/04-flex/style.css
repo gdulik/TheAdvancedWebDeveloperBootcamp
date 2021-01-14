@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+
+.box {
+	font-size: 100px;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	font-family: "Lato", sans-serif;
+	font-weight: 300;
+	box-sizing: border-box;
+	/* FLEX PROPERTIES */
+	/* flex-basis: 300px;
+	flex-grow: 1;
+  flex-shrink: 1; */
+	flex: 300px 1 1;
+}
+
+.container {
+	border: 2px solid black;
+	/* FLEX PROPERTIES */
+	display: flex;
+	flex-direction: row;
+}
+
+.box-1 {
+	background: #e51400;
+	flex-shrink: 2;
+}
+.box-2 {
+	background: #fa6800;
+	flex-grow: 2;
+}
+.box-3 {
+	background: #f0a30a;
+}
+.box-4 {
+	background: #e3c800;
+	flex-shrink: 2;
+}
