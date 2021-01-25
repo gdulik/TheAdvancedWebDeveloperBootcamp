@@ -1,6 +1,7 @@
 // Require all modules
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 // Setup express
 const app = express();
@@ -15,11 +16,15 @@ const todoRoutes = require('./routes/todos');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Set path to serve static content
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+
 app.get('/', (req, res) => {
-	res.send('Hello');
+	res.sendFile('index.html');
 });
 
-// Use routes for todos with prefix
+// Use todos routes with prefix
 app.use('/api/todos', todoRoutes);
 
 app.listen(port, () => {
