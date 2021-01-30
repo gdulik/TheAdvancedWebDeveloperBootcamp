@@ -1,34 +1,48 @@
+d3.select('#reset').on('click', () => {
+	d3.selectAll('.letter').remove();
+	d3.select('#phrase').text('');
+	d3.select('#count').text('');
+});
+
 d3.select('form').on('submit', () => {
 	d3.event.preventDefault();
 	const input = d3.select('input');
-	countChars(input.property('value'));
-	input.property('value', '');
-});
+	const text = input.property('value');
 
-function countChars(text) {
-	d3.select('#phrase').text(`Analysis of: ${text}`);
-	d3.select('#count').text(`(New characters: ${text.length})`);
-
-	d3
+	const letters = d3
 		.select('#letters')
+		.selectAll('.letter')
+		.data(getFrequencies(text), (d) => d.character);
+
+	letters.classed('new', false).exit().remove();
+
+	letters
+		.enter()
 		.append('div')
 		.classed('letter', true)
 		.classed('new', true)
-		.text(d.character)
+		.merge(letters)
 		.style('width', '20px')
-		.style('height', `${d.count * 20}px`)
+		.style('height', (d) => `${d.count * 20}px`)
 		.style('line-height', '20px')
-		.style('margin-right', '5px');
-}
+		.style('margin-right', '5px')
+		.text((d) => d.character);
 
-[
-	{
-		character: 'h',
-		count: 1
-	}
-];
+	d3.select('#phrase').text(`Analysis of: ${text}`);
+	d3
+		.select('#count')
+		.text(`(New characters: ${letters.enter().nodes().length})`);
+
+	input.property('value', '');
+});
 
 function getFrequencies(str) {
-	const strArr = str.split('').sorted();
+	const strArr = str.split('').sort();
 	const data = [];
+	for (let i = 0; i < strArr.length; i++) {
+		const last = data[data.length - 1];
+		if (last && last.character === strArr[i]) last.count++;
+		else data.push({ character: strArr[i], count: 1 });
+	}
+	return data;
 }
