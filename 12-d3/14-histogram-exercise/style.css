@@ -1,0 +1,9 @@
+svg,
+input {
+	margin: 0;
+	display: block;
+}
+
+.bin-count {
+	text-align: center;
+}
