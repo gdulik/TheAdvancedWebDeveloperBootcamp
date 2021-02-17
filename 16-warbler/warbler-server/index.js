@@ -9,6 +9,9 @@ const bodyParser = require('body-parser');
 const errorHandler = require('./handlers/error');
 // Loads routes
 const authRoutes = require('./routes/auth');
+const messagesRoutes = require('./routes/messages');
+// Loads middleware
+const { loginRequired, ensureCorrectUser } = require('./middleware/auth');
 
 const PORT = 8081;
 
@@ -17,6 +20,12 @@ app.use(bodyParser.json());
 
 // Use routes with prefix
 app.use('/api/auth', authRoutes);
+app.use(
+	'/api/users/:id/messages',
+	loginRequired,
+	ensureCorrectUser,
+	messagesRoutes
+);
 
 app.use((req, res, next) => {
 	let err = new Error('Not Found');
