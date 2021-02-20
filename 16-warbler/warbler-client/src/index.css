@@ -36,6 +36,8 @@ ul.nav.navbar-nav li {
 	background-size: 100% 100%;
 }
 
+/* Hero section */
+
 .home-hero {
 	width: 100vw;
 	height: 100vh;
@@ -54,4 +56,16 @@ ul.nav.navbar-nav li {
 	padding: 1rem;
 	color: #fff;
 	text-shadow: 0 0 8px #66757f;
+}
+
+/* Messages */
+
+#messages .list-group-item {
+	display: flex;
+	align-items: flex-start;
+	padding: 7px 20px 12px;
+}
+
+#messages:not(.no-hover) .list-group-item:hover {
+	background-color: #e6ecf0;
 }
