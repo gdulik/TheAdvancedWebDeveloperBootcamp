@@ -8,7 +8,8 @@ const MessageItem = ({
 	profileImageUrl,
 	username,
 	text,
-	removeMessage
+	removeMessage,
+	isCorrectUser
 }) => {
 	return (
 		<div>
@@ -28,9 +29,11 @@ const MessageItem = ({
 						</Moment>
 					</span>
 					<p>{text}</p>
-					<a className="btn btn-danger" onClick={removeMessage}>
-						Delete
-					</a>
+					{isCorrectUser && (
+						<a className="btn btn-danger" onClick={removeMessage}>
+							Delete
+						</a>
+					)}
 				</div>
 			</li>
 		</div>
